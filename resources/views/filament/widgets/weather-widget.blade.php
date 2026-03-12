@@ -2,7 +2,7 @@
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-4">
         <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Clima de Colombia</h3>
-            <button 
+            <button
                 wire:click="$dispatch('refresh-weather')"
                 class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
             >
