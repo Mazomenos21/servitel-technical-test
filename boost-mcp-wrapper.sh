@@ -7,4 +7,7 @@ export DB_DATABASE=servitel-db
 export DB_USERNAME=root
 export DB_PASSWORD=password
 
+export REDIS_HOST=127.0.0.1
+export REDIS_PORT=6379
+
 exec php artisan boost:mcp "$@"
