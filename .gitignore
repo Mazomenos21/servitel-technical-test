@@ -1,0 +1,45 @@
+# Laravel & general
+/vendor/
+/node_modules/
+/public/build/
+/public/hot
+/public/mix-manifest.json
+/.idea/
+/.vscode/
+/.phpunit.result.cache
+/.pestphp
+/.cache/
+/.sass-cache/
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files (do NOT commit real secrets)
+.env
+.env.*
+
+# Storage & cache
+/storage/*.key
+/storage/*.sqlite
+/storage/debugbar/
+/storage/framework/*
+/storage/logs/*
+/bootstrap/cache/*
+
+# SQLite DBs
+*.sqlite
+/database/*.sqlite
+
+# Homestead
+Homestead.yaml
+Homestead.json
+
+# Misc
+/public/hot
+/.idea/
+
+# Ignore vendor and node_modules folders if present at any level
+**/vendor/
+**/node_modules/
+
