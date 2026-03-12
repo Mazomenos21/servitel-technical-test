@@ -3,6 +3,10 @@ php_version = "82"
 
 [phases.setup]
 cmds = [
-    "apt-get update && apt-get install -y libxml2-dev",
-    "docker-php-ext-install dom"
+    "apt-get update && apt-get install -y libxml2-dev"
+]
+
+[phases.build]
+cmds = [
+    "composer install --no-dev --optimize-autoloader --ignore-platform-reqs"
 ]
