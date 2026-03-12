@@ -7,8 +7,9 @@ use Illuminate\Console\Command;
 
 class FetchWeather extends Command
 {
-    protected $signature = "weather:fetch {city=Bogota : Ciudad} {country=Colombia : País}";
-    protected $description = "Obtiene el clima actual de una ciudad";
+    protected $signature = 'weather:fetch {city=Bogota : City} {country=Colombia : Country}';
+
+    protected $description = 'Fetches current weather for a city';
 
     public function __construct(private WeatherService $weatherService)
     {
@@ -17,32 +18,34 @@ class FetchWeather extends Command
 
     public function handle(): int
     {
-        $city = $this->argument("city");
-        $country = $this->argument("country");
+        $city = $this->argument('city');
+        $country = $this->argument('country');
 
-        $this->info("Obteniendo clima para {$city}, {$country}...");
+        $this->info("Fetching weather for {$city}, {$country}...");
 
         $weather = $this->weatherService->fetchWeather($city, $country);
 
         if ($weather) {
-            $this->info("✓ Clima guardado exitosamente!");
+            $this->info('Weather saved successfully!');
             $this->table(
-                ["Ciudad", "País", "Temp", "Máx", "Mín", "Descripción", "Humedad", "Viento"],
+                ['City', 'Country', 'Temp', 'Max', 'Min', 'Description', 'Humidity', 'Wind'],
                 [[
                     $weather->city,
                     $weather->country,
-                    $weather->temperature . "°C",
-                    $weather->temperature_max . "°C",
-                    $weather->temperature_min . "°C",
+                    $weather->temperature.'°C',
+                    $weather->temperature_max.'°C',
+                    $weather->temperature_min.'°C',
                     $weather->weather_description,
-                    $weather->humidity . "%",
-                    $weather->wind_speed . " km/h",
+                    $weather->humidity.'%',
+                    $weather->wind_speed.' km/h',
                 ]]
             );
+
             return Command::SUCCESS;
         }
 
-        $this->error("No se pudo obtener el clima.");
+        $this->error('Failed to fetch weather.');
+
         return Command::FAILURE;
     }
 }
