@@ -1,0 +1,8 @@
+[build]
+php_version = "82"
+
+[phases.setup]
+cmds = [
+    "apt-get update && apt-get install -y libxml2-dev",
+    "docker-php-ext-install dom"
+]
